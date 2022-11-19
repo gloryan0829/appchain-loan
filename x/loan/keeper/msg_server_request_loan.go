@@ -12,12 +12,12 @@ func (k msgServer) RequestLoan(goCtx context.Context, msg *types.MsgRequestLoan)
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
 	var loan = types.Loan{
-		Amount: msg.Amount,
-		Fee: msg.Fee,
+		Amount:     msg.Amount,
+		Fee:        msg.Fee,
 		Collateral: msg.Collateral,
-		Deadline: msg.Deadline,
-		State: "requested",
-		Borrower: msg.Creator,
+		Deadline:   msg.Deadline,
+		State:      "requested",
+		Borrower:   msg.Creator,
 	}
 
 	borrower, _ := sdk.AccAddressFromBech32(msg.Creator)

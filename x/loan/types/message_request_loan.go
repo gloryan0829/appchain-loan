@@ -65,11 +65,11 @@ func (msg *MsgRequestLoan) ValidateBasic() error {
 	collateral, _ := sdk.ParseCoinsNormalized(msg.Collateral)
 
 	if !collateral.IsValid() {
-        return sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "collateral is not a valid Coins object")
-    }
-    if collateral.Empty() {
-        return sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "collateral is empty")
-    }
-	
+		return sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "collateral is not a valid Coins object")
+	}
+	if collateral.Empty() {
+		return sdkerrors.Wrap(sdkerrors.ErrInvalidRequest, "collateral is empty")
+	}
+
 	return nil
 }
