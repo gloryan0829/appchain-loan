@@ -40,12 +40,12 @@ func (k msgServer) RepayLoan(goCtx context.Context, msg *types.MsgRepayLoan) (*t
 	}
 	err = k.bankKeeper.SendCoins(ctx, borrower, lender, fee)
 	if err != nil {
-        return nil, sdkerrors.Wrap(types.ErrWrongLoanState, "Cannot send coins")
-    }
+		return nil, sdkerrors.Wrap(types.ErrWrongLoanState, "Cannot send coins")
+	}
 	err = k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, borrower, collateral)
 	if err != nil {
-        return nil, sdkerrors.Wrap(types.ErrWrongLoanState, "Cannot send coins")
-    }
+		return nil, sdkerrors.Wrap(types.ErrWrongLoanState, "Cannot send coins")
+	}
 
 	loan.State = "repayed"
 
