@@ -44,6 +44,6 @@ func (k msgServer) LiquidateLoan(goCtx context.Context, msg *types.MsgLiquidateL
 	loan.State = "liquidated"
 
 	k.SetLoan(ctx, loan)
-	
+
 	return &types.MsgLiquidateLoanResponse{}, nil
 }
